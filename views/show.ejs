@@ -1,0 +1,54 @@
+<%- include ('partials/nav-dash') %>
+<div class="section-dash main-dash text-gray-900 margin-show center">
+    <h2 class="head-dash font display-6">
+        <i class="angle double left icon inline"></i> 
+                        Read more of <%= note.title.toUpperCase() %>
+        <i class="angle double right icon inline"></i>
+    </h2>
+</div>
+<div class="main-dash show-main text-gray-900">
+    <div class="ui main text">
+        <div class="ui huge header center"><h1 class="title-show font"><%= note.title.toUpperCase() %></h1></div>
+            <div class="ui top attached">
+                <div class="item">
+                    <div>
+                        <strong><p><%= note.createdAt.toDateString() %></p></strong>
+                    </div>
+                    <div class="body-show center">
+                        <p><%- note.body %></p> 
+                    </div>
+                    <form class="ui form" action="/notes/likes/<%= note._id %>" method="POST">
+                        <p><button class="like"><i class="heart icon"></i> 
+                          <% if (note.likes != null) { %>
+                              <%= Object.keys(note.likes).length %>
+                          <% } %> 
+                        </button></p>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="comment-border post-child main-dash show-main text-gray-900 margin-comment-show">
+    <!-- comment starts here -->
+      <div class="well">
+          <div class="text-right spacing-comment">
+              <h3 class="display-5 center font">Comments</h1>
+          </div>
+          <% for(var j=0; j< note.comments.length; j++){ %>
+            <div class="card spacing-comment black-color-comment">
+                    <div class="margin-comment">
+                        <strong><%= note.comments[j].author.username %></strong>
+                        <span class="pull-right">10 Days ago</span>
+                        <p><%= note.comments[j].text %></p>   
+                    </div>
+            </div>
+          <% } %>
+          </div>
+          <div class="center">
+            <a href="/dashboard" class="btn btn-primary">Write a Comment!</a>
+            <a onclick="history.back()" href="#" class="btn btn-danger">Go back!</a>
+            </div>
+          </div>   
+
+<%- include ('partials/footer-dash') %>

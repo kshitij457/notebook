@@ -1,0 +1,53 @@
+<%- include('partials/nav-dash') %>
+
+<% var err = true; %>
+
+
+<div class="text-gray-900">
+<h1 class="display-6 center">Search results for <%= input %>...</h1>
+<% for(var i=0; i< user.length; i++){ %>
+    <% if(user[i].username.toLowerCase().startsWith(input.toLowerCase())){ %>
+        <% err = false; %>
+        <br>
+        <div class="center search-main">  
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <strong><h2 class="display-4 search-username"><%= user[i].username %></h2></strong> 
+                </div>
+            
+            <% var isfollowed = false; %>
+                
+            <% if(user[i].followers.length > 0){ %>
+                <% for(var x=0; x < user[i].followers.length; x++){ %>
+                    <% var follower  = user[i].followers[x]; %>
+                        <% if(follower.toString() == currentUser._id.toString()){ %>
+                            <% isfollowed = true; %>
+                             <% break; %>
+                    <% } %>
+                <% } %>
+            <% } %>
+
+                <div class="col-md-6 col-sm-12 search-btn">
+                    <a class="btn btn-primary" href="/profile/<%= user[i]._id %>">View Profile</a>
+                    <% if(isfollowed == false){ %> 
+                        <form action="/follow/<%= user[i]._id %>" method="POST">
+                            <input class="btn btn-danger follow-btn" type="submit" value="Follow">  
+                        </form>
+                    <% } else { %>
+                        <form action="/follow/<%= user[i]._id %>" method="POST">
+                            <input class="btn btn-danger follow-btn" type="submit" value="Unfollow">  
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    <% } %>
+<% } %>
+
+<% if(err == true){ %>
+    <br>
+    <p class="search-main display-4 center">Sorry no results found.</p>
+<% } %>
+</div>
+</div>
+<%- include('partials/footer-dash') %>

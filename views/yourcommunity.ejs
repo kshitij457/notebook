@@ -1,0 +1,24 @@
+<%- include('partials/nav-dash') %>
+
+<div class="section-dash main-dash">
+    <h2 class="head-dash font display-6 text-gray-900">
+      <i class="angle double left icon inline"></i> 
+                        Community 
+      <i class="angle double right icon inline"></i>
+    </h2>
+    <div class="row">
+        <% for(var i=0; i< com.length; i++){ %>  
+          <% if (com[i].username == currentUser.username) { %>
+        <div class="col-md-3 col-sm-6 section-dash">
+          <div class="story vert-cent text-gray-900">
+              <h1 class="center">@ <%= com[i].username %></h1>
+              <p class="center"><%= com[i].body.slice(0,17) %> ...</p>
+          </div>
+        </div>
+          <% } %>
+        <% } %>
+    </div>
+</div>
+    <h1></h1>
+
+<%- include('partials/footer-dash') %>

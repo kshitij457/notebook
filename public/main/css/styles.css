@@ -1,0 +1,277 @@
+.head-text{
+    font-size: xx-large;
+}
+.font{
+    font-family: 'Kaushan Script', cursive;
+}
+.body-text{
+    font-size: large;
+}
+.margin-nav{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.style-jumbo{
+    text-align: center;
+    border: 2px solid #e03997;
+}
+.center{
+    text-align: center;
+}
+.color-button{
+    background-color: #6435c9;
+    font-size:33px;
+}
+.flash-height{
+    padding: 10px;
+    margin-top: 30px;
+}
+.icon-size{
+    font-size: x-large;
+}
+.img-book{
+    width: 250px;
+}
+.color-btn{
+    background-color: blue;
+}
+.auth-style{
+    border: 2px solid blue;
+    padding-bottom: 20px;
+}
+.text-auth{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.dash-btn{
+    width: 20%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.auth-margin{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.margin-in{
+    margin-top: 15px;
+}
+.animated{
+    animation: up-down 2s ease-in-out infinite alternate-reverse both;
+    box-shadow: 0 0 black;
+}
+.brand-spacing{
+    font-size: 20px;
+}
+.white{
+    background-color: white;
+
+}
+.head-dash{
+    border-bottom: 1px solid rgb(0,0,0, 0.2);
+}
+.story{
+    margin: 0 auto;
+    border: 2px solid black;
+    vertical-align: baseline;
+
+}
+.vert-cent{
+    vertical-align: baseline;
+    padding: 20px;
+    font-size: 23px;
+}
+.section-dash{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.post{
+    background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px black;
+    border: 1px solid black;
+    margin-top: 10px;
+}
+.text-design{
+    text-shadow: 2px 2px black;
+}
+.body-post{
+    font-size: x-large;
+    text-shadow: 2px 2px black;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.main-dash{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+/* from yelpcamp */
+.well{
+    margin-top: 2%;
+}
+.margin-comment{
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.comment-border{
+    border: 1px solid rgb(0,0,0, 0.2);
+    border-radius: 10px;
+    box-shadow: 5px 5px black;
+    margin-top: 10px;
+}
+.spacing-comment{
+    margin-bottom: 20px;
+}
+.no-padding {
+    padding-right: 10px !important;
+    padding-left: 0 !important;
+}
+.post-border{
+    border: 1px solid rgb(0,0,0, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+}
+.border-compose{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 5px 5px black;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+.margin-form{
+    margin-top: 2%;
+}
+.banner{
+    padding: 100px;
+    background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+    border: 1px solid black;
+    margin-bottom: 2%;
+    color: white;
+    text-shadow: 3px 3px black;
+    border-radius: 10px;
+}
+.description{
+    padding: 50px;
+    border: 1px solid rgb(0,0,0, 0.2);
+    border-radius: 20px;
+}
+.body-show{
+    padding: 100px;
+    border: 1px solid rgb(0,0,0,0.2);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    font-size: x-large;
+}
+.title-show{
+    padding: 20px;
+}
+.show-main{
+    margin-top: 3%;
+    border: 1px solid rgb(0,0,0, 0.2);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 5px 5px black;
+}
+.margin-show{
+    margin-top: 3%;
+}
+.margin-comment-show{
+    margin-bottom: 20px;
+}
+.size-heart{
+    font-size: x-large;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.btn-comment{
+    position: absolute;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.like{
+    border: none;
+    background-color: white;
+}
+.margin-feed{
+    padding: 30px;
+}
+.size-no-comment{
+    font-size: 30px;
+    margin-top: 5%;
+    border: 1px solid rgb(0,0,0, 0.2);
+    border-radius: 10px;
+    padding: 5px;
+}
+.none{
+    display: none;
+}
+/* ------ */
+
+.suggestions {
+    width: 90.7%;
+    display: none;
+    position: absolute;
+    z-index: 2;
+}
+.suggestions.show{
+    display: block;
+}
+.suggestions > div {
+  padding: 5px;
+  font-size: 15px;
+  color: black;
+  border: 1px solid blue;
+  cursor: pointer;
+}
+.suggestions > div:hover {
+  background-color: #1e4dd4;
+}
+.search-main{
+  border: 1px solid black;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 5px 5px black;
+  margin-top: 10px;
+} 
+.search-btn{
+  margin-top: 1%;
+}
+.follow-count{
+    border: 1px solid rgb(0,0,0,0.2);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.follow-btn{
+    margin-top: 1%;
+}
+.follow-btn-profile{
+    margin-bottom: 2%;   
+}   
+.btn-profile{
+    text-align: center;
+    margin-bottom: 2%;
+}
+.posted{
+    color: black;
+}
+.not-found{
+    padding: 20px;
+    border: 1px solid rgb(0,0,0, 0.2);
+    margin-top: 10px;
+    border-radius: 20px;
+}

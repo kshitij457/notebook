@@ -1,0 +1,72 @@
+<%- include('partials/nav-dash') %>
+
+
+<div class="section-dash text-gray-900 main-dash">
+    <h2 class="head-dash font display-6">
+      <i class="angle double left icon inline"></i> 
+                      Your Notes
+      <i class="angle double right icon inline"></i>
+    </h2>
+<% for (var i = 0; i< note.length; i++) { %>
+    <% if (note[i].username == currentUser.username) { %>
+        <div class="post-border">
+          <hr>
+            <h5 class="display-6 center font">
+                <a class="posted" href="/profile/<%= note[i].userId %>"><%= note[i].username %> Posted.</a></h5>
+                <hr>
+          <div class="row notes-group no-padding">
+              <div class="col-md-6 col-sm-12">
+                <div class="post">
+                  <h1 class="center font display-5 text-design"><%= note[i].title %></h1>
+                  <div class="body-post">
+                    <p><%= note[i].createdAt.toString().slice(4,15) %></p>
+                    <p class="center"><%= note[i].body.toString().slice(0, 50) %> ....</p>
+                </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-12 comment-border post-child">
+                <!-- comment starts here -->
+                  <div class="well">
+                      <div class="text-right spacing-comment">
+                          <h3 class="display-5 center font">Comments</h1>
+                      </div>
+                      
+                      <% if(note[i].comments.length > 0){ %>
+                      <% for(var j=0; j< note[i].comments.length; j++){ %>
+                          <% if(j >= 1){ %>
+                            <p class="center">and <%= note[i].comments.length -1 %> more comment</p>
+                            <% break; %>
+                          <% } %>
+                        <div class="card spacing-comment black-color-comment">
+                                <div class="margin-comment">
+                                        <strong><%= note[i].comments[j].author.username %></strong>
+                                        <p><%= note[i].comments[j].text %></p>
+                                </div>
+                        </div>
+                      <% } %>
+                    <% } else { %>
+                      <h6 class="center font size-no-comment">No comments yet...</h6>
+                    <% } %>
+                      <div class="center btn-comment">
+                        <a href="/notes/<%= note[i]._id %>" class="btn btn-danger">Read more!</a>
+                        <a href="/notes/<%= note[i]._id %>/comments/new" class="btn btn-primary">Write a Comment!</a>
+                      </div> 
+                    </div>
+                    <div class="heart size-heart">
+                        <form class="ui form" action="/notes/likes/<%= note[i]._id %>" method="POST">
+                          <p><button class="like"><i class="heart icon"></i> 
+                            <% if (note[i].likes != null) { %>
+                                <%= Object.keys(note[i].likes).length %>
+                            <% } %> 
+                          </button></p>
+                        </form>
+                    </div>
+                <!-- ends here -->
+              </div>
+          </div>
+        </div>
+        <% } %>
+<% } %>
+
+</div>
+<%- include('partials/footer-dash') %>

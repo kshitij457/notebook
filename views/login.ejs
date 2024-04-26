@@ -1,0 +1,34 @@
+<%- include('partials/links') %>
+<%- include('partials/nav') %>
+<div class="container border auth-margin">
+    <div class="row">
+        <!-- contact info -->
+        <div class="col-md-6 center">
+            <img src="/main/images/book.png" class="img-fluid animated" alt="">
+        </div>
+        <!-- newsletter -->
+        <div class="col-md-6">
+            <div class="container margin-in">
+<h1 class="center font display-4">Log in</h1>
+<div class="container">
+    <div class="center text-auth"><p>Happy to have you back! Please Login.</p></div>
+        <div>   
+            <form action="/login" method="POST">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Username" name="username">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" placeholder="Password" name="password">
+            </div>
+            <div class="form-group">
+                <input class="form-control btn-primary" type="submit" value="Login">  
+            </div>
+            </form>
+            <div class="center"><a href="/">Go back</a></div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<%- include('partials/footer') %>

@@ -1,0 +1,42 @@
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="/"><span>Notebook</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+            
+          <li class="active"><a href="/">Home</a></li>
+            <% if(!currentUser){ %>    
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Signup</a></li>
+            <% } else { %>        
+                <li><a class="item" href="/dashboard">
+                    Signed in as <%= currentUser.username %></a></li>
+                <li><a class="item" href="/logout">Logout</a></li>
+            <% } %>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->  
+  
+  <!-- ======= Hero Section ======= -->
+  <section>
+
+<% if(success && success.length>0){ %>
+    <div class="container center alert alert-success flash-height" role="alert">
+        <%= success %>
+      </div>
+<% } %>
+<% if(error && error.length>0){ %>
+    <div class="container center alert alert-danger flash-height" role="alert">
+        <%= error %>
+      </div>
+<% } %>

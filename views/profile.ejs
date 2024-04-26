@@ -1,0 +1,118 @@
+<%- include('partials/nav-dash') %>
+
+<% var isfollowed = false; %>
+
+<% if(founduser.followers.length > 0){ %>
+  <% for(var x=0; x < founduser.followers.length; x++){ %>
+      <% var follower  = founduser.followers[x]; %>
+          <% if(follower.toString() == currentUser._id.toString()){ %>
+              <% isfollowed = true; %>
+               <% break; %>
+      <% } %>
+  <% } %>
+<% } %>
+
+<div class="section-dash text-gray-900 main-dash">
+    <div class="banner">
+        <h1 class="font display-3 center"><%= founduser.username %></h1>
+    </div>
+    <div class="btn-profile">
+      <% if(isfollowed == false){ %> 
+          <form action="/follow/<%= founduser._id %>" method="POST">
+              <input class="btn btn-danger" type="submit" value="Follow">  
+              <a class="btn btn-warning msg-btn" href="#"> 
+                <i class="envelope icon"></i>  Message</a> 
+          </form>
+    <% } else { %>
+        <form action="/follow/<%= founduser._id %>" method="POST">
+            <input class="btn btn-danger" type="submit" value="Unfollow"> 
+            <a class="btn btn-warning msg-btn" href="#"> 
+              <i class="envelope icon"></i> Message</a>  
+        </form>
+    <% } %>
+  </div>   
+   
+  <div class="follow-count center">
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <h1 class="display-5 font">Followers</h1>
+          <h1 class="display-5 font"><%= founduser.followers.length %></h1>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <h1 class="display-5 font">Following</h1>
+          <h1 class="display-5 font"><%= founduser.following.length %></h1>
+        </div>
+      </div>
+    </div>
+    <h2 class="head-dash font display-6 center">
+        <i class="angle double left icon inline"></i> 
+                        Description
+        <i class="angle double right icon inline"></i>
+      </h2>
+      <h4 class="center display-5 description">-- description goes here --</h4>
+    <h2 class="head-dash font display-6 center">
+      <i class="angle double left icon inline"></i> 
+                      Your Notes
+      <i class="angle double right icon inline"></i>
+    </h2>
+<% for (var i = 0; i< note.length; i++) { %>
+    <% if (note[i].username == founduser.username) { %>
+        <div class="post-border">
+          <hr>
+          <h5 class="display-6 center font"><%= note[i].username %> Posted.</h2>
+            <hr>
+          <div class="row notes-group no-padding">
+              <div class="col-md-6 col-sm-12">
+                <div class="post">
+                  <h1 class="center font display-5 text-design"><%= note[i].title %></h1>
+                  <div class="body-post">
+                    <p><%= note[i].createdAt.toString().slice(4,15) %></p>
+                    <p class="center"><%= note[i].body.toString().slice(0, 50) %> ....</p>
+                </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-12 comment-border post-child">
+                <!-- comment starts here -->
+                <div class="well">
+                  <div class="text-right spacing-comment">
+                      <h3 class="display-5 center font">Comments</h1>
+                  </div>
+                  
+                  <% if(note[i].comments.length > 0){ %>
+                  <% for(var j=0; j< note[i].comments.length; j++){ %>
+                      <% if(j >= 1){ %>
+                        <p class="center">and <%= note[i].comments.length -1 %> more comment</p>
+                        <% break; %>
+                      <% } %>
+                    <div class="card spacing-comment black-color-comment">
+                            <div class="margin-comment">
+                                    <strong><%= note[i].comments[j].author.username %></strong>
+                                    <p><%= note[i].comments[j].text %></p>
+                            </div>
+                    </div>
+                  <% } %>
+                <% } else { %>
+                  <h6 class="center font size-no-comment">No comments yet...</h6>
+                <% } %>
+                  <div class="center btn-comment">
+                    <a href="/notes/<%= note[i]._id %>" class="btn btn-danger">Read more!</a>
+                    <a href="/notes/<%= note[i]._id %>/comments/new" class="btn btn-primary">Write a Comment!</a>
+                  </div> 
+                </div>
+                <div class="heart size-heart">
+                    <form class="ui form" action="/notes/likes/<%= note[i]._id %>" method="POST">
+                      <p><button class="like"><i class="heart icon"></i> 
+                        <% if (note[i].likes != null) { %>
+                            <%= Object.keys(note[i].likes).length %>
+                        <% } %> 
+                      </button></p>
+                    </form>
+                </div>
+                <!-- ends here -->
+              </div>
+          </div>
+        </div>
+        <% } %>
+<% } %>
+</div>
+<%- include('partials/footer-dash') %>
